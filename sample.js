@@ -11,15 +11,23 @@ function onClickHandler(info, tab) {
     console.log("WORD: " + text);
     
     // Get stored muted words
-    chrome.storage.local.get({ mutedWords: [] }, // default value if not defined yet
-                function (items) {
-                    if (items.css) {
-                        textarea.value = items.css;
-                        message('Loaded saved CSS.');
-                    }
-                });
-    
-    console.log(JSON.stringify(mutedWords));
+    chrome.storage.sync.get({
+        list: [] // default value
+    },
+        function (data) {
+            console.log(data.list);
+            update(data.list); //storing the storage value in a variable and passing to update function
+            console.log(data.list);
+        }
+    );
+
+    function update(array) {
+        array.push(text);
+        // update with modified value
+        chrome.storage.sync.set({
+            list: array
+        }, function () {});
+    }
 };
 
 
@@ -28,13 +36,6 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 // Set up context menu tree at install time.
 chrome.runtime.onInstalled.addListener(function () {
     var context = "selection";
-    var title = "Test '" + context + "' menu item";
-    var id = chrome.contextMenus.create({
-        "title": title, "contexts": [context],
-        "id": "context" + context
-    });
-    console.log("'" + context + "' item:" + id);
-    
     var title = "Test '" + context + "' menu item";
     var id = chrome.contextMenus.create({
         "title": title, "contexts": [context],
