@@ -1,9 +1,11 @@
 {
     "name": "My Context Menus",
-    "description": "Shows some of the features of the Context Menus API using an event page",
+    "description": "TEST",
     "version": "0.7",
     "permissions": [
-        "contextMenus"
+        "contextMenus",
+        "tabs",
+        "storage"
     ],
     "background": {
         "persistent": false,
