@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "name": "Evanesco",
   "version": "1.1",
-  "description": "Create your very own filter bubble!",
+  "description": "Create your very own tweet fliter!",
   "page_action" :
   {
     "default_icon" : "images/icon-19x19.png",
-    "default_title" : "You are inside your Filter Bubble!"
+    "default_title" : "Welcome to Evanesco!"
   },
   "permissions": [
     "contextMenus",
@@ -16,11 +16,8 @@
   "content_scripts": [
     { 
       "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "exclude_globs": [
-        "*://*github.com*"
+        "http://twitter.com/*",
+        "https://twitter.com/*"
       ],
       "js": ["js/jquery-2.1.4.min.js", "js/filter.js"],
       "run_at": "document_idle",

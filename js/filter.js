@@ -40,11 +40,17 @@ function filterNodes() {
             thisNode = xpathResult.iterateNext();
         }
     }
-    //deletedCount = deletedCount + array.length;
     for (var i = 0; i < array.length; i++) {
-        var p = array[i].parentNode;
-        if (p !== null)
-            p.removeChild(array[i]);
+        var p = array[i];
+        while(p !== null && p.parentNode && p.nodeName !== "ARTICLE") {
+            p = p.parentNode;
+        }
+        if (p !== null && p.parentNode) {
+            console.log("Target Node:" + p.nodeName);
+            var prt = p.parentNode;
+            prt.removeChild(p);
+        }
+
     }
 }
 
