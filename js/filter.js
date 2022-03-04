@@ -13,6 +13,9 @@ chrome.storage.sync.get({
     for(var i = 0; i < badWords.length; i++) {
 
         var word = badWords[i];
+        if(word.length === 0) {
+            continue;
+        }
         xpathPatterns.push(
             ["//body//*[not(self::script or self::style)]/text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '" + word + "')]", word],
             ["//body//a[contains(translate(@href, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'" + word + "')]", word],
