@@ -1,5 +1,5 @@
 /*
- * Evanesco - Content Script
+ * Twilter - Content Script
  *
  * This is the primary JS file that manages the detection and filtration of words from the web page.
  */

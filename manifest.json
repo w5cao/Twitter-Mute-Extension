@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Evanesco",
+  "name": "Twilter",
   "version": "1.1",
-  "description": "Create your very own tweet fliter!",
+  "description": "Create your very own tweet twilter!",
   "page_action" :
   {
     "default_icon" : "images/icon-19x19.png",
-    "default_title" : "Welcome to Evanesco!"
+    "default_title" : "Welcome to Twilter!"
   },
   "permissions": [
     "contextMenus",
