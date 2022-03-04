@@ -1,5 +1,5 @@
 /*
- * FilterBubble - Content Script
+ * Evanesco - Content Script
  *
  * This is the primary JS file that manages the detection and filtration of words from the web page.
  */
@@ -7,7 +7,7 @@
 var xpathPatterns = [];
 
 chrome.storage.sync.get({
-    blacklist: 'FilterBubble'
+    blacklist: ""
 }, function(items) {
     badWords = items.blacklist.toLowerCase().split(/\r?\n/);
     for(var i = 0; i < badWords.length; i++) {

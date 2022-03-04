@@ -15,7 +15,6 @@ function save_options() {
 
 // Restores options stored in chrome.storage.
 function restore_options() {
-    // Use default value blacklist = 'FilterBubble'
     chrome.storage.sync.get({
         blacklist: "",
     }, function(items) {
@@ -24,4 +23,3 @@ function restore_options() {
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
-
