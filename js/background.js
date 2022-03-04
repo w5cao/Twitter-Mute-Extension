@@ -54,8 +54,7 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 // Set up context menu tree at install time.
 chrome.runtime.onInstalled.addListener(function () {
-  var context = "selection";
-  var title = "Test '" + context + "' menu item";
+  var title = "Add word to play magic";
   var id = chrome.contextMenus.create({
       "title": title, "contexts": [context],
       "id": "context" + context
