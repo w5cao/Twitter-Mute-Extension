@@ -49,12 +49,12 @@ function onClickHandler(info, tab) {
   }
 };
 
-
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 // Set up context menu tree at install time.
 chrome.runtime.onInstalled.addListener(function () {
-  var title = "Add word to play magic";
+  var title = "Block words on Twitter";
+  var context = "selection";
   var id = chrome.contextMenus.create({
       "title": title, "contexts": [context],
       "id": "context" + context
